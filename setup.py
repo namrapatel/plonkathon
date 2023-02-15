@@ -70,7 +70,7 @@ class Setup(object):
         # Run inverse FFT to convert values from Lagrange basis to monomial basis
         monomial_values = values.ifft().values
         # Optional: Check values size does not exceed maximum power setup can handle
-        assert(len(monomial_values <= len(self.powers_of_x)))
+        assert(len(monomial_values) <= len(self.powers_of_x))
         # Compute linear combination of setup with values
         return ec_lincomb(list(zip(self.powers_of_x, monomial_values)))
 
